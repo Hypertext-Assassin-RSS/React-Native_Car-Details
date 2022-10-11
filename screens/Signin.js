@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, Center, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, Text, VStack } from 'native-base'
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
 
 export default function Signin({navigation}) {
-  const styles = StyleSheet.create({
-    vst:{
-      height:100,
-      backgroundColor:'red'
-    }
-  })
 
+  const [user, setUser] = useState('')
+  const [password, setPassword] = useState('')
+
+  const signin = () => {
+    if (user == 'admin' && password == 'admin') {
+      console.log('ok')
+    }
+  }
 
   return (
     <NativeBaseProvider>
@@ -26,15 +28,16 @@ export default function Signin({navigation}) {
       }} color="coolGray.600" fontWeight="medium" size="xs">
           Sign in to continue!
         </Heading>
-
         <VStack space={3} mt="5">
           <FormControl>
             <FormControl.Label>Email ID</FormControl.Label>
-            <Input />
+            <Input type='text' onChangeText={setUser}
+          />
           </FormControl>
           <FormControl>
             <FormControl.Label>Password</FormControl.Label>
-            <Input type="password" />
+            <Input type="password" onChangeText={setPassword}
+            />
             <Link _text={{
             fontSize: "xs",
             fontWeight: "500",
@@ -43,7 +46,9 @@ export default function Signin({navigation}) {
               Forget Password?
             </Link>
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
+          <Button mt="2" colorScheme="indigo"
+          onPress={signin}
+          >
             Sign in
           </Button>
           <HStack mt="6" justifyContent="center">
