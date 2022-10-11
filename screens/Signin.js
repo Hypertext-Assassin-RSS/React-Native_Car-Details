@@ -10,7 +10,7 @@ export default function Signin({navigation}) {
 
   const signin = () => {
     if (user == 'admin' && password == 'admin') {
-      console.log('ok')
+      navigation.navigate('Post')
     }
   }
 
