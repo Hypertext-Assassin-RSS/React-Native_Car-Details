@@ -56,7 +56,7 @@ export default function Signin({navigation}) {
             color: "indigo.500",
             fontWeight: "medium",
             fontSize: "sm"
-          }} href="#">
+          }}  onPress={()=>{navigation.navigate('Sign up')}}>
               Sign Up
             </Link>
           </HStack>
