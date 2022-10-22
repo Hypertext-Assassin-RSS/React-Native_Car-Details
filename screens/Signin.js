@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Button, Center, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, Text, VStack } from 'native-base'
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
@@ -8,11 +8,38 @@ export default function Signin({navigation}) {
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
 
+  const [first, setfirst] = useState()
+  const [second, setsecond] = useState()
+
   const signin = () => {
-    if (user == 'admin' && password == 'admin') {
+    if (user == first && password == second) {
       navigation.navigate('Post')
+    }else{
+      alert('User Name PW')
     }
   }
+
+
+  const response = async () => {
+    try {
+     const response = await fetch('https://mocki.io/v1/b476f90e-5e17-4e80-81f9-3834e94ecb85');
+     const json = await response.json();
+     console.log(json.user)
+      setfirst(json.user)
+      setsecond(json.password)
+     return json
+   } catch (error) {
+     console.error('Eroor :',error);
+   } finally {
+     
+   }
+ }
+
+ useEffect(() => {
+   response();
+
+ }, []);
+
 
   return (
     <NativeBaseProvider>
