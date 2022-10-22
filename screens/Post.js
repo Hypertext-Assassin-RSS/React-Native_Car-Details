@@ -1,9 +1,12 @@
 import React, {useState, useCallback} from 'react';
 import {StyleSheet, View} from 'react-native';
 import * as ImagePicker from 'react-native-image-picker';
+import { NativeBaseProvider} from 'native-base';
 
 import {ImagePickerModal} from '../components/image-picker-modal';
 import {ImagePickerAvatar} from '../components/image-picker-avatar';
+import VehicleInput from '../components/vehicle-input';
+
 
 export default function Post() {
   const [pickerResponse, setPickerResponse] = useState(null);
@@ -38,6 +41,7 @@ export default function Post() {
         onImageLibraryPress={onImageLibraryPress}
         onCameraPress={onCameraPress}
       />
+      <VehicleInput />
     </View>
   );
 }
@@ -45,6 +49,6 @@ export default function Post() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: '#f2f2fC',
+    backgroundColor: 'gray',
   },
 });
