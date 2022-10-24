@@ -1,6 +1,6 @@
 import { View } from 'react-native'
 import React, { useState } from 'react'
-import { Box, Button, Center, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, Text, VStack } from 'native-base'
+import { Avatar, Box, Button, Center, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, Text, VStack } from 'native-base'
 
 
 export default function Signup({navigation}) {
@@ -22,6 +22,17 @@ export default function Signup({navigation}) {
       }} fontWeight="medium" size="xs">
           Sign up to continue!
         </Heading>
+        <HStack mt="6" justifyContent="center">
+            <Avatar
+            bg="blue.600"
+            mr="1"
+            size="xl"
+            source={{
+              uri: '#',
+            }}>
+            --
+          </Avatar>
+          </HStack>
         <VStack space={3} mt="5">
           <FormControl>
             <FormControl.Label>Email</FormControl.Label>

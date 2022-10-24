@@ -11,17 +11,16 @@ export default function Backgroud(props) {
     
 
   return (
-    <NativeBaseProvider>
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
-        <Box borderRadius={10} w="90%" h="30%" bg="primary.500" shadow={5} padding={1.5}>
+        <Box borderRadius={10} w="90%" h="40%" bg="blue.600" shadow={5} padding={1.5}>
         <HStack space={3} display='flex' alignItems='center'>
             <Index />
-            <Register props/>
+            <Register reg='BVW-8035'/>
             <Model />
             <Contact />
         </HStack>
         </Box>
       </View>
-    </NativeBaseProvider>
+    
   );
 }

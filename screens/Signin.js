@@ -35,7 +35,9 @@ export default function Signin({navigation}) {
       setStatus('success');
       setMessage('Login successfull');
       setShow(true);
-      navigation.navigate('Post');
+      setTimeout(() =>{
+        navigation.navigate('Home')
+      },1000);
     } else {
       setStatus('error');
       setMessage('User name or Password is Wrong');
@@ -52,6 +54,7 @@ export default function Signin({navigation}) {
       console.log(json.user);
       setfirst(json.user);
       setsecond(json.password);
+      
       return json;
     } catch (error) {
       console.error('Eroor :', error);
@@ -92,7 +95,7 @@ export default function Signin({navigation}) {
             mr="1"
             size="xl"
             source={{
-              uri: 'https://bit.ly/broken-link',
+              uri: '#',
             }}>
             RS
           </Avatar>
@@ -143,10 +146,10 @@ export default function Signin({navigation}) {
             </HStack>
           </VStack>
         </Box>
-        <Collapse isOpen={show}>
-          <Alert w="100%" marginTop={140} status={status} colorScheme={status}>
+        <Collapse isOpen={show} >
+          <Alert w="100%" marginTop={1} status={status} colorScheme={status}>
             <VStack space={2} flexShrink={1} w="100%">
-              <HStack flexShrink={1} space={2} justifyContent="space-between">
+              <HStack flexShrink={1} space={0} justifyContent="space-between">
                 <HStack space={2} flexShrink={1} alignItems="center">
                   <Alert.Icon mt="1" />
                   <Text fontSize="md" color="coolGray.800">

@@ -1,10 +1,9 @@
-import { View, Text } from 'react-native'
-import React, { useEffect } from 'react'
-import { NativeBaseProvider } from 'native-base'
-import Backgroud from '../components/vehicle/Backgroud'
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import React, {useEffect} from 'react';
+import {NativeBaseProvider, VStack} from 'native-base';
+import Backgroud from '../components/vehicle/Backgroud';
 
-export default function Home() {
-
+export default function Home({navigation}) {
   const response = async () => {
     try {
       const response = await fetch(
@@ -18,15 +17,32 @@ export default function Home() {
     }
   };
 
+
   useEffect(() => {
     response();
   }, []);
-    
-
 
   return (
     <NativeBaseProvider>
-      <Backgroud reg='BCW-8035'/>
+      <VStack space={4} alignItems="center">
+        <Backgroud reg="BCW-8035" />
+        <TouchableOpacity style={styles.button} 
+        onPress={() => {
+          navigation.navigate('Post');
+        }}
+        >
+          <Text>New Vehicle</Text>
+        </TouchableOpacity>
+      </VStack>
     </NativeBaseProvider>
-  )
+  );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#4F46E5',
+    padding: 10,
+    width: '90%',
+  },
+});
