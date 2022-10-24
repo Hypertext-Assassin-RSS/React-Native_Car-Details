@@ -1,12 +1,16 @@
 import { View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, Center, FormControl, Heading, HStack, Input, Link, NativeBaseProvider, Text, VStack } from 'native-base'
 
 
 export default function Signup({navigation}) {
+
+  const [emain, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <NativeBaseProvider>
-      <Center w="100%">
+      <Center w="100%" >
       <Box safeArea p="2" w="90%" maxW="290" py="8">
         <Heading size="lg" color="coolGray.800" _dark={{
         color: "warmGray.50"
