@@ -35,7 +35,19 @@ router.post('/',(req,res) => {
             console.log('Error :',error)
         }else{
             console.log(result)
-            res.send({message:'Customer '+req.body.email + ' Saved'})
+            res.send({message:'User '+req.body.email + ' Saved'})
+        }
+    })
+})
+
+router.get('/', (req,res) => {
+    let query = 'SELECT * FROM USER'
+    connection.query(query,function(error,result){
+        if(error){
+            console.log('Error :',error)
+        }else{
+            console.log(result)
+            res.json(result)
         }
     })
 })
