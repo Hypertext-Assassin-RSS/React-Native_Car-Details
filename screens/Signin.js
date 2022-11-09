@@ -47,9 +47,7 @@ export default function Signin({navigation}) {
 
   const response = async () => {
     try {
-      const response = await fetch(
-        'https://mocki.io/v1/b476f90e-5e17-4e80-81f9-3834e94ecb85',
-      );
+      const response = await fetch('http://localhost:4000/user');
       const json = await response.json();
       console.log(json.user);
       setfirst(json.user);
@@ -57,7 +55,7 @@ export default function Signin({navigation}) {
       
       return json;
     } catch (error) {
-      console.error('Eroor :', error);
+      console.error('Error :', error);
     } finally {
     }
   };
